@@ -1,20 +1,21 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, Phone } from "lucide-react";
+import { Menu, X, Phone, Globe } from "lucide-react";
 import logo from "@/assets/friendly-logo.svg";
-
-const navLinks = [
-  { to: "/", label: "Home" },
-  { to: "/about", label: "Our Office" },
-  { to: "/team", label: "Our Team" },
-  { to: "/services", label: "Services" },
-  { to: "/contact", label: "Contact" },
-];
+import { useLanguage } from "@/context/LanguageContext";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
+  const { lang, setLang, t } = useLanguage();
+
+  const navLinks = [
+    { to: "/", label: t("nav.home") },
+    { to: "/about", label: t("nav.office") },
+    { to: "/services", label: t("nav.services") },
+    { to: "/contact", label: t("nav.contact") },
+  ];
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
@@ -26,6 +27,8 @@ const Header = () => {
     setIsOpen(false);
     window.scrollTo(0, 0);
   }, [location.pathname]);
+
+  const toggleLang = () => setLang(lang === "en" ? "zh" : "en");
 
   return (
     <header
@@ -54,10 +57,20 @@ const Header = () => {
           ))}
         </nav>
 
-        <a href="tel:6042738315" className="hidden lg:flex btn-primary text-sm">
-          <Phone className="w-4 h-4" />
-          604-273-8315
-        </a>
+        <div className="hidden lg:flex items-center gap-4">
+          <button
+            onClick={toggleLang}
+            className="flex items-center gap-1.5 text-sm font-medium text-foreground/70 hover:text-primary transition-colors px-3 py-1.5 rounded-full border border-border hover:border-primary/30"
+            aria-label="Switch language"
+          >
+            <Globe className="w-3.5 h-3.5" />
+            {lang === "en" ? "中文" : "EN"}
+          </button>
+          <a href="tel:6042738315" className="btn-primary text-sm">
+            <Phone className="w-4 h-4" />
+            604-273-8315
+          </a>
+        </div>
 
         <button
           onClick={() => setIsOpen(!isOpen)}
@@ -84,6 +97,13 @@ const Header = () => {
                 {link.label}
               </Link>
             ))}
+            <button
+              onClick={toggleLang}
+              className="py-3 px-4 rounded-lg text-sm font-semibold uppercase tracking-wide text-foreground/80 hover:text-primary hover:bg-primary/5 flex items-center gap-2 text-left"
+            >
+              <Globe className="w-4 h-4" />
+              {lang === "en" ? "中文（繁體）" : "English"}
+            </button>
             <a href="tel:6042738315" className="btn-primary text-sm mt-2 justify-center">
               <Phone className="w-4 h-4" />
               604-273-8315
