@@ -6,9 +6,9 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
+import BookNowButton from "@/components/BookNowButton";
 import Index from "./pages/Index.tsx";
 import About from "./pages/About.tsx";
-import Team from "./pages/Team.tsx";
 import Services from "./pages/Services.tsx";
 import Contact from "./pages/Contact.tsx";
 import NotFound from "./pages/NotFound.tsx";
@@ -26,7 +26,6 @@ const App = () => (
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/about" element={<About />} />
-            <Route path="/team" element={<Team />} />
             <Route path="/services" element={<Services />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="*" element={<NotFound />} />
@@ -34,6 +33,7 @@ const App = () => (
         </main>
         <Footer />
         <ScrollToTop />
+        <BookNowButton />
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
