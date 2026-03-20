@@ -99,7 +99,7 @@ const Index = () => {
 
         <FloatingDots />
         <div className="container-max px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="py-16 lg:py-24 max-w-2xl">
+          <div className="py-16 lg:py-24 grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             <AnimatedSection animation="fade-in-left">
               <p className="text-sm font-semibold uppercase tracking-widest text-secondary mb-4">
                 {t("hero.tag")}
@@ -121,6 +121,11 @@ const Index = () => {
                 <Link to="/services" className="btn-secondary">
                   {t("hero.ourServices")}
                 </Link>
+              </div>
+            </AnimatedSection>
+            <AnimatedSection animation="fade-in-right">
+              <div className="w-full max-w-md lg:max-w-none mx-auto">
+                <ContactForm />
               </div>
             </AnimatedSection>
           </div>
