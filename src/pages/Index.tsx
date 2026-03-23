@@ -301,11 +301,11 @@ const Index = () => {
             </h2>
           </AnimatedSection>
 
-          {/* Dentists Grid - 3 top, 2 bottom left-aligned */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {/* Dentists Grid - 4 in one row */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {doctors.map((doc, i) => (
               <AnimatedSection key={i} delay={i * 100}>
-                <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 text-center">
+                <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 text-center flex flex-col h-full">
                   <img
                     src={doc.image}
                     alt={doc.name}
@@ -313,7 +313,8 @@ const Index = () => {
                     loading="lazy"
                   />
                   <h3 className="text-lg font-bold text-primary-foreground">{doc.name}</h3>
-                  <p className="text-secondary text-sm font-medium">{doc.title}</p>
+                  <p className="text-secondary text-sm font-medium mb-3">{doc.title}</p>
+                  <p className="text-primary-foreground/70 text-xs leading-relaxed flex-1">{doc.bio}</p>
                 </div>
               </AnimatedSection>
             ))}
