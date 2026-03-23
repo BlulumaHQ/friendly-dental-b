@@ -1,4 +1,4 @@
-import { Phone } from "lucide-react";
+import { Phone, CheckCircle, Shield, Clock, Star, ArrowDown, Sparkles, Heart, Zap } from "lucide-react";
 import { Link } from "react-router-dom";
 import officeImage from "@/assets/office-interior.jpg";
 import FloatingDots from "@/components/FloatingDots";
@@ -77,9 +77,8 @@ const Index = () => {
 
   return (
     <div>
-      {/* Hero Section with Video */}
-      <section className="relative pt-24 pb-0 overflow-hidden min-h-[75vh] flex items-center">
-        {/* Video Background */}
+      {/* ═══ 1. HOOK — Full-screen hero with video ═══ */}
+      <section className="relative min-h-screen flex items-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <video
             autoPlay
@@ -89,17 +88,14 @@ const Index = () => {
             className="w-full h-full object-cover"
             poster={officeImage}
           >
-            <source
-              src="https://videos.pexels.com/video-files/3209828/3209828-hd_1920_1080_25fps.mp4"
-              type="video/mp4"
-            />
+            <source src="/videos/hero-desktop.mp4" type="video/mp4" />
           </video>
-          <div className="absolute inset-0 bg-gradient-to-r from-foreground/80 via-foreground/60 to-foreground/30" />
+          <div className="absolute inset-0 bg-gradient-to-r from-foreground/85 via-foreground/70 to-foreground/40" />
         </div>
 
         <FloatingDots />
-        <div className="container-max px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="py-16 lg:py-24 grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+        <div className="container-max px-4 sm:px-6 lg:px-8 relative z-10 pt-24 pb-16">
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             <AnimatedSection animation="fade-in-left">
               <p className="text-sm font-semibold uppercase tracking-widest text-secondary mb-4">
                 {t("hero.tag")}
@@ -113,14 +109,22 @@ const Index = () => {
               <p className="text-lg text-white/80 max-w-lg mb-8">
                 {t("hero.desc")}
               </p>
-              <div className="flex flex-wrap items-center gap-4">
-                <a href="tel:6042738315" className="btn-primary">
-                  <Phone className="w-4 h-4" />
+              <div className="flex flex-wrap items-center gap-4 mb-8">
+                <a href="tel:6042738315" className="btn-primary text-lg px-8 py-4">
+                  <Phone className="w-5 h-5" />
                   {t("hero.call")}
                 </a>
-                <Link to="/services" className="btn-secondary">
-                  {t("hero.ourServices")}
-                </Link>
+                <a
+                  href="#contact-form-section"
+                  className="btn-secondary text-lg px-8 py-4"
+                >
+                  {t("nav.bookNow")}
+                </a>
+              </div>
+              {/* Urgency micro-copy */}
+              <div className="flex items-center gap-2 text-white/70 text-sm">
+                <CheckCircle className="w-4 h-4 text-secondary" />
+                <span>{t("funnel.accepting")}</span>
               </div>
             </AnimatedSection>
             <AnimatedSection animation="fade-in-right">
@@ -129,51 +133,46 @@ const Index = () => {
               </div>
             </AnimatedSection>
           </div>
-        </div>
-      </section>
 
-      {/* Welcome Section */}
-      <section className="section-padding bg-background">
-        <div className="container-max">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <AnimatedSection>
-              <h2 className="section-title mb-6">
-                {t("welcome.title1")}{" "}
-                <span className="text-secondary">{t("welcome.title2")}</span>
-              </h2>
-              <p className="text-muted-foreground leading-relaxed mb-6">{t("welcome.p1")}</p>
-              <p className="text-muted-foreground leading-relaxed">{t("welcome.p2")}</p>
-            </AnimatedSection>
-            <AnimatedSection animation="fade-in-right">
-              <img
-                src={officeImage}
-                alt="Friendly Dental Centre office interior"
-                className="rounded-2xl shadow-xl w-full"
-                loading="lazy"
-              />
-            </AnimatedSection>
+          {/* Scroll indicator */}
+          <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce hidden lg:block">
+            <ArrowDown className="w-6 h-6 text-white/50" />
           </div>
         </div>
       </section>
 
-      {/* Why Trust Us */}
-      <section className="section-padding bg-section-alt">
-        <div className="container-max text-center">
+      {/* ═══ 2. PROBLEM — Pain point identification ═══ */}
+      <section className="py-16 md:py-20 bg-foreground text-white">
+        <div className="container-max px-4 sm:px-6 lg:px-8 text-center">
           <AnimatedSection>
-            <h2 className="section-title mb-4">
-              {t("trust.title1")} <span className="text-secondary">{t("trust.title2")}</span>
+            <p className="text-secondary font-semibold uppercase tracking-widest text-sm mb-4">{t("funnel.problem.tag")}</p>
+            <h2 className="text-3xl md:text-4xl font-bold mb-6 max-w-3xl mx-auto leading-tight">
+              {t("funnel.problem.title")}
             </h2>
-            <p className="section-subtitle mx-auto mb-12">{t("trust.subtitle")}</p>
+            <p className="text-white/70 text-lg max-w-2xl mx-auto leading-relaxed">
+              {t("funnel.problem.desc")}
+            </p>
+          </AnimatedSection>
+        </div>
+      </section>
+
+      {/* ═══ 3. AGITATION — Emphasize consequences ═══ */}
+      <section className="py-16 md:py-20 bg-background">
+        <div className="container-max px-4 sm:px-6 lg:px-8">
+          <AnimatedSection className="text-center mb-12">
+            <h2 className="section-title mb-4">{t("funnel.agitate.title")}</h2>
           </AnimatedSection>
           <div className="grid md:grid-cols-3 gap-8">
             {[
-              { title: t("trust.item1.title"), desc: t("trust.item1.desc"), icon: "🏆" },
-              { title: t("trust.item2.title"), desc: t("trust.item2.desc"), icon: "❤️" },
-              { title: t("trust.item3.title"), desc: t("trust.item3.desc"), icon: "⚡" },
+              { icon: Clock, title: t("funnel.agitate.item1.title"), desc: t("funnel.agitate.item1.desc") },
+              { icon: Heart, title: t("funnel.agitate.item2.title"), desc: t("funnel.agitate.item2.desc") },
+              { icon: Zap, title: t("funnel.agitate.item3.title"), desc: t("funnel.agitate.item3.desc") },
             ].map((item, i) => (
               <AnimatedSection key={i} delay={i * 150}>
-                <div className="bg-card rounded-2xl p-8 shadow-md hover:shadow-lg transition-shadow">
-                  <div className="text-4xl mb-4">{item.icon}</div>
+                <div className="bg-card rounded-2xl p-8 shadow-md border border-border text-center">
+                  <div className="w-14 h-14 rounded-full bg-destructive/10 flex items-center justify-center mx-auto mb-4">
+                    <item.icon className="w-7 h-7 text-destructive" />
+                  </div>
                   <h3 className="text-xl font-bold text-foreground mb-3">{item.title}</h3>
                   <p className="text-muted-foreground text-sm leading-relaxed">{item.desc}</p>
                 </div>
@@ -183,9 +182,73 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Services */}
-      <section className="section-padding bg-background">
-        <div className="container-max">
+      {/* ═══ 4. SOLUTION — Welcome + What we offer ═══ */}
+      <section className="py-16 md:py-20 bg-primary">
+        <div className="container-max px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <AnimatedSection>
+              <p className="text-secondary font-semibold uppercase tracking-widest text-sm mb-3">{t("funnel.solution.tag")}</p>
+              <h2 className="text-3xl md:text-4xl font-bold text-primary-foreground mb-6 leading-tight">
+                {t("welcome.title1")}{" "}
+                <span className="text-secondary">{t("welcome.title2")}</span>
+              </h2>
+              <p className="text-primary-foreground/80 leading-relaxed mb-6">{t("welcome.p1")}</p>
+              <p className="text-primary-foreground/80 leading-relaxed mb-8">{t("welcome.p2")}</p>
+              <a href="#contact-form-section" className="bg-secondary text-secondary-foreground px-8 py-4 rounded-full font-semibold hover:bg-secondary/90 transition-all inline-flex items-center gap-2 text-lg">
+                {t("nav.bookNow")}
+              </a>
+            </AnimatedSection>
+            <AnimatedSection animation="fade-in-right">
+              <img
+                src={officeImage}
+                alt="Friendly Dental Centre office interior"
+                className="rounded-2xl shadow-2xl w-full"
+                loading="lazy"
+              />
+            </AnimatedSection>
+          </div>
+        </div>
+      </section>
+
+      {/* ═══ 5. BENEFITS — Why trust us + value ═══ */}
+      <section className="py-16 md:py-20 bg-section-alt">
+        <div className="container-max px-4 sm:px-6 lg:px-8 text-center">
+          <AnimatedSection>
+            <h2 className="section-title mb-4">
+              {t("trust.title1")} <span className="text-secondary">{t("trust.title2")}</span>
+            </h2>
+            <p className="section-subtitle mx-auto mb-12">{t("trust.subtitle")}</p>
+          </AnimatedSection>
+          <div className="grid md:grid-cols-3 gap-8">
+            {[
+              { title: t("trust.item1.title"), desc: t("trust.item1.desc"), icon: Shield },
+              { title: t("trust.item2.title"), desc: t("trust.item2.desc"), icon: Heart },
+              { title: t("trust.item3.title"), desc: t("trust.item3.desc"), icon: Sparkles },
+            ].map((item, i) => (
+              <AnimatedSection key={i} delay={i * 150}>
+                <div className="bg-card rounded-2xl p-8 shadow-md hover:shadow-lg transition-shadow border border-border">
+                  <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
+                    <item.icon className="w-7 h-7 text-primary" />
+                  </div>
+                  <h3 className="text-xl font-bold text-foreground mb-3">{item.title}</h3>
+                  <p className="text-muted-foreground text-sm leading-relaxed">{item.desc}</p>
+                </div>
+              </AnimatedSection>
+            ))}
+          </div>
+
+          {/* Inline CTA */}
+          <AnimatedSection className="mt-12">
+            <a href="#contact-form-section" className="btn-primary text-lg px-10 py-4 inline-flex items-center gap-2">
+              {t("cta.bookOnline")}
+            </a>
+          </AnimatedSection>
+        </div>
+      </section>
+
+      {/* ═══ 6. SERVICES — Clear value breakdown ═══ */}
+      <section className="py-16 md:py-20 bg-background">
+        <div className="container-max px-4 sm:px-6 lg:px-8">
           <AnimatedSection className="text-center mb-12">
             <h2 className="section-title mb-4">
               {t("services.title1")} <span className="text-secondary">{t("services.title2")}</span>
@@ -195,7 +258,7 @@ const Index = () => {
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {services.map((service, i) => (
               <AnimatedSection key={service.key} delay={i * 100}>
-                <Link to={`/services#${service.key}`} className="card-service p-6 hover:border-secondary/30 group">
+                <Link to={`/services#${service.key}`} className="card-service p-6 hover:border-secondary/30 group flex flex-col h-full">
                   <img
                     src={service.icon}
                     alt={service.title}
@@ -212,8 +275,8 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Stats + Dentists */}
-      <section className="py-16 bg-primary">
+      {/* ═══ 7. TRUST — Stats + Team credibility ═══ */}
+      <section className="py-16 md:py-20 bg-primary">
         <div className="container-max px-4 sm:px-6 lg:px-8">
           {/* Stats Row */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center mb-16">
@@ -256,12 +319,20 @@ const Index = () => {
               </AnimatedSection>
             ))}
           </div>
+
+          {/* Trust CTA */}
+          <AnimatedSection className="text-center mt-12">
+            <a href="#contact-form-section" className="bg-secondary text-secondary-foreground px-10 py-4 rounded-full font-semibold hover:bg-secondary/90 transition-all inline-flex items-center gap-2 text-lg">
+              <Phone className="w-5 h-5" />
+              {t("funnel.trustCta")}
+            </a>
+          </AnimatedSection>
         </div>
       </section>
 
-      {/* FAQ */}
-      <section className="section-padding bg-section-alt">
-        <div className="container-max">
+      {/* ═══ 8. OFFER — FAQ to remove objections ═══ */}
+      <section className="py-16 md:py-20 bg-section-alt">
+        <div className="container-max px-4 sm:px-6 lg:px-8">
           <AnimatedSection className="text-center mb-12">
             <h2 className="section-title mb-4">{t("faq.title")}</h2>
             <p className="section-subtitle mx-auto">{t("faq.subtitle")}</p>
@@ -287,27 +358,27 @@ const Index = () => {
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="section-padding bg-primary text-center">
-        <div className="container-max">
+      {/* ═══ 9. CTA — Primary conversion push ═══ */}
+      <section className="py-16 md:py-20 bg-foreground text-center">
+        <div className="container-max px-4 sm:px-6 lg:px-8">
           <AnimatedSection>
-            <h2 className="text-3xl md:text-4xl font-bold text-primary-foreground mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
               {t("cta.title")}
             </h2>
-            <p className="text-primary-foreground/80 text-lg max-w-xl mx-auto mb-8">
+            <p className="text-white/70 text-lg max-w-xl mx-auto mb-8">
               {t("cta.desc")}
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <a
                 href="tel:6042738315"
-                className="bg-secondary text-secondary-foreground px-8 py-3 rounded-full font-semibold hover:bg-secondary/90 transition-all inline-flex items-center gap-2"
+                className="bg-secondary text-secondary-foreground px-10 py-4 rounded-full font-semibold hover:bg-secondary/90 transition-all inline-flex items-center gap-2 text-lg"
               >
-                <Phone className="w-4 h-4" />
+                <Phone className="w-5 h-5" />
                 {t("cta.callNow")}
               </a>
               <a
                 href="#contact-form-section"
-                className="bg-primary-foreground text-primary px-8 py-3 rounded-full font-semibold hover:bg-primary-foreground/90 transition-all"
+                className="bg-white text-foreground px-10 py-4 rounded-full font-semibold hover:bg-white/90 transition-all text-lg"
               >
                 {t("cta.bookOnline")}
               </a>
@@ -316,10 +387,11 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Contact Form + Google Map Section */}
-      <section id="contact-form-section" className="section-padding bg-background">
-        <div className="container-max">
+      {/* ═══ 10. FINAL CTA — Contact Form + Map ═══ */}
+      <section id="contact-form-section" className="py-16 md:py-20 bg-background">
+        <div className="container-max px-4 sm:px-6 lg:px-8">
           <AnimatedSection className="text-center mb-12">
+            <p className="text-secondary font-semibold uppercase tracking-widest text-sm mb-3">{t("funnel.final.tag")}</p>
             <h2 className="section-title mb-4">
               {t("map.title")}
             </h2>

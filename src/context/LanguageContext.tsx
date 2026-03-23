@@ -28,6 +28,37 @@ const translations: Record<string, Record<Language, string>> = {
   "hero.call": { en: "(604) 273-8315", zh: "(604) 273-8315" },
   "hero.ourServices": { en: "Our Services", zh: "我們的服務" },
 
+  // Funnel sections
+  "funnel.accepting": { en: "Now Accepting New Patients — Book Today", zh: "現正接受新患者 — 立即預約" },
+  "funnel.problem.tag": { en: "Don't Wait Until It Hurts", zh: "不要等到疼痛才就醫" },
+  "funnel.problem.title": {
+    en: "Most dental problems start silently. By the time you feel pain, the damage is already done.",
+    zh: "大多數牙齒問題是無聲開始的。當您感到疼痛時，損害已經造成。",
+  },
+  "funnel.problem.desc": {
+    en: "Delayed dental care leads to bigger issues, higher costs, and longer recovery times. Early prevention is the key to a healthier, pain-free smile.",
+    zh: "延遲的牙齒護理會導致更大的問題、更高的費用和更長的恢復時間。早期預防是健康、無痛笑容的關鍵。",
+  },
+  "funnel.agitate.title": { en: "What Happens When You Delay Dental Care", zh: "延遲牙齒護理會發生什麼" },
+  "funnel.agitate.item1.title": { en: "Small Issues Become Big Problems", zh: "小問題變成大問題" },
+  "funnel.agitate.item1.desc": {
+    en: "A minor cavity today can become a root canal or extraction tomorrow. Early detection saves you time, money, and discomfort.",
+    zh: "今天的小蛀牙可能成為明天的根管治療或拔牙。早期發現可以節省您的時間、金錢和不適。",
+  },
+  "funnel.agitate.item2.title": { en: "Your Confidence Takes a Hit", zh: "您的自信受到影響" },
+  "funnel.agitate.item2.desc": {
+    en: "Dental issues affect more than your teeth — they impact your smile, your confidence, and how you feel every day.",
+    zh: "牙齒問題影響的不僅是您的牙齒——它們影響您的笑容、自信和每天的感受。",
+  },
+  "funnel.agitate.item3.title": { en: "Costs Multiply Over Time", zh: "費用隨時間倍增" },
+  "funnel.agitate.item3.desc": {
+    en: "Preventive care costs a fraction of emergency treatments. Regular visits keep your dental expenses predictable and manageable.",
+    zh: "預防性護理的費用僅為緊急治療的一小部分。定期就診使您的牙齒費用可預測且可控。",
+  },
+  "funnel.solution.tag": { en: "The Solution", zh: "解決方案" },
+  "funnel.trustCta": { en: "Book Your Visit Today", zh: "立即預約您的就診" },
+  "funnel.final.tag": { en: "Take The Next Step", zh: "踏出下一步" },
+
   // Welcome
   "welcome.title1": { en: "Welcome to", zh: "歡迎來到" },
   "welcome.title2": { en: "Friendly Dental Centre", zh: "友善牙醫中心" },
