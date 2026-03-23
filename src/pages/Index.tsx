@@ -33,27 +33,26 @@ const doctors = [
   {
     name: "Dr. Patrick Wu",
     title: "D.M.D.",
-    image: "https://friendlydental.ca/wp-content/uploads/2023/04/team-member2.png",
+    image: "https://friendly-dental-centre.netlify.app/assets/dentist-wu-DYVYygme.jpg",
+    bio: "Dr. Patrick Wu graduated with honours from the University of Pennsylvania School of Dental Medicine. After practicing dentistry in New Jersey for four years, he returned to Vancouver in 2012. Dr. Wu provides comprehensive care for patients of all ages, with special interests in implant dentistry, orthodontics, pediatric care, and complex restorative treatments.",
   },
   {
     name: "Dr. Mike Pan",
     title: "D.D.S.",
-    image: "https://friendlydental.ca/wp-content/uploads/2023/04/team-member1.png",
+    image: "https://friendly-dental-centre.netlify.app/assets/dentist-pan-DRhoM6FV.jpg",
+    bio: "Dr. Mike Pan is known for his strong clinical skills and thoughtful approach to dental treatment. His areas of expertise include orthodontics, dental implants, wisdom teeth removal, and comprehensive dental care. Outside of dentistry, Dr. Pan enjoys golfing, skiing, woodworking, and music.",
   },
   {
     name: "Dr. Ivy Lin",
     title: "D.D.S.",
-    image: "https://friendlydental.ca/wp-content/uploads/2023/04/team-member.png",
+    image: "https://friendly-dental-centre.netlify.app/assets/dentist-lin-BUPgALLK.jpg",
+    bio: "Dr. Ivy Lin is known for her gentle and patient-centered approach to dentistry. She provides comprehensive care for patients of all ages and has particular strength in restorative dentistry. Dr. Lin focuses on creating a comfortable and relaxing experience while delivering high-quality dental treatment.",
   },
   {
     name: "Dr. Jie Chen",
-    title: "D.D.S.",
-    image: "https://friendlydental.ca/wp-content/uploads/2024/04/dr-ogura88-88.jpg",
-  },
-  {
-    name: "Dr. New Dentist",
-    title: "D.D.S.",
-    image: "https://friendlydental.ca/wp-content/uploads/2023/04/team-member2.png",
+    title: "D.D.S., MSc Prosthodontics",
+    image: "https://friendly-dental-centre.netlify.app/assets/dentist-chen-BmBUUUN_.jpg",
+    bio: "Dr. Jie Chen is an experienced prosthodontist specializing in cosmetic dentistry and complex restorative treatments. Her expertise includes dentures, implant restorations, and full-mouth rehabilitation. Dr. Chen is known for her meticulous work and gentle care, helping patients restore both their smiles and confidence.",
   },
 ];
 
